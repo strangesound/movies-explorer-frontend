@@ -14,7 +14,7 @@ function SearchForm(props) {
     return (
         <section className="searchformSection">
             <form className="searchform">
-                <input type="text" className="searchform__search-field" value="Фильм">
+                <input name="Поиск фильма" type="text" required className="searchform__search-field" placeholder="Фильм">
 
                 </input>
                 <button type="submit" className="searchform__btn">Найти</button>

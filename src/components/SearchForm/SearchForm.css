@@ -30,6 +30,10 @@
   width: 100%;
   box-sizing: border-box;
 }
+.searchform__search-field:focus {
+  border: 1px solid red;
+  outline:none;
+}
 /* .searchform__body {
   font-family: Inter;
   font-size: 13px;

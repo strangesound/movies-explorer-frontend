@@ -1,0 +1,165 @@
+.aboutMe__portfolio-links {
+  margin: 0;
+  padding: 0;
+}
+
+.aboutMe {
+  padding: 40px 70px 40px 70px;
+  /* background: #f5f5f5; */
+}
+
+.aboutMe__header {
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutMe__header:after {
+  display: block;
+  width: 100%;
+  content: "";
+  border-bottom: 1px solid #000;
+  margin-top: 24px;
+  margin-bottom: 70px;
+}
+.aboutMe__subhead {
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+.aboutMe__text {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.aboutMe__job {
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.aboutMe__contacts {
+  display: flex;
+  justify-content: left;
+  padding: 0;
+}
+
+.aboutMe__portfolio {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #a0a0a0;
+  margin: 100px 0 50px 0;
+  padding: 0;
+}
+
+.aboutMe__contact {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  list-style: none;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.aboutMe__portfolio-text {
+  list-style: none;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  text-decoration: none;
+  list-style-type: none; /* Remove bullets */
+}
+.aboutMe__portfolio-list-item {
+  border-bottom: 1px solid #E5E5E5;
+  list-style-type: none; /* Remove bullets */
+}
+.aboutMe__portfolio-list-item:last-child {
+  border-bottom: none;
+}
+
+.aboutMe__portfolio-link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000;
+  transition: 0.7s;
+  list-style-type: none; /* Remove bullets */
+}
+
+.aboutMe__portfolio-link:hover {
+  opacity: 0.5;
+}
+
+.aboutMe_text-img-wrapper {
+  display: flex;
+}
+.aboutMe__arseny {
+  height: 327px;
+  width: 270px;
+  border-radius: 10px;
+}
+
+.aboutMe_text-wrapper {
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutMe {
+    padding: 18px 30px;
+  }
+
+  .aboutMe__job {
+    font-size: 12px;
+  }
+  .aboutMe__text {
+    font-size: 12px;
+  }
+  .aboutMe__subhead {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .aboutMe_text-img-wrapper {
+    flex-direction: column;
+  }
+  .aboutMe__arseny {
+    order: -1;
+  }
+  .aboutMe__subhead {
+    font-size: 30px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+  }
+  .aboutMe__portfolio {
+    margin: 70px 0 40px 0;
+  }
+
+  .aboutMe__portfolio-text{
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,134 @@
+.Profile {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  height: 100vh;
+  margin: auto;
+
+}
+.Profile__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100%;
+}
+
+.form-profile__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.form-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  max-width: 396px;
+  width: 100%;
+  margin-top: 70px;
+}
+.form-profile__head {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  /* identical to box height */
+
+  color: #000000;
+}
+.form-profile__contact-wrapper {
+  border: none;
+  margin: 70px 0 0 0;
+  padding: 0;
+}
+.form-profile__email {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  height: 35px;
+  color: #000000;
+  border: none;
+  /* border-bottom: 1px solid #e8e8e8; */
+  text-align: right;
+}
+
+.form-profile__email:disabled {
+  background: none;
+}
+
+.form-profile__submitBtn {
+  margin-top: 70px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-profile__submitBtn:hover {
+  opacity: 0.7;
+}
+
+.form-profile__bottom-text {
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.form-profile__register:hover {
+  opacity: 0.7;
+}
+
+.form-profile__register {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-align: center;
+  color: #ee3465;
+  margin-top: 16px;
+}
+.form-profile__email-holder {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  margin-top: 20px;
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 425px) {
+  .Profile {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+}

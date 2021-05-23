@@ -1,0 +1,79 @@
+
+.movieCard {
+  background: #fdfdfd;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+
+}
+.movieCard__image {
+  width: 100%;
+  /* min-height: 190px; */
+  object-fit: fill;
+}
+.movieCard__title {
+}
+.movieCard__like-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 12px;
+}
+.movieCard__name {
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.MovieLikeButtonClassName {
+  border-radius: 100%;
+  background: #2be080;
+  border: 1px solid white;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /* transition: 0.3s; */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09);
+}
+.MovieLikeButtonGray {
+  border-radius: 100%;
+  background: #F9F9F9;
+  border: 1px solid white;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /* transition: 0.3s; */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09);
+}
+.MovieDislLikeButton {
+  /* border-radius: 100%; */
+  background-color: transparent;
+  border: none;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /* transition: 0.3s; */
+  /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09); */
+  background-image: url('../../images/dislike.svg');
+  background-repeat: no-repeat;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+  background-position: center;
+
+}
+.movieCard__length {
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #a0a0a0;
+  padding: 0 12px 12px 12px;
+  margin: 0;
+}

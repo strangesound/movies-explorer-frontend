@@ -1,0 +1,38 @@
+.firstScreen {
+  background-color: #465dff;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px 40px 70px;
+  /* padding-right: 70px; */
+}
+.firstScreen__header {
+  margin: 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 130%;
+  color: white;
+}
+.firstScreen__img {
+  width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .firstScreen {
+    padding: 18px 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .firstScreen__header {
+    text-align: center;
+    margin: 70px 0;
+    font-size: 31px;
+
+  }
+  .firstScreen__img {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+  
+}

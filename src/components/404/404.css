@@ -1,0 +1,50 @@
+.notFound {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+}
+.notFound__header {
+  font-family: Inter;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 169px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.notFound__page {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.notFound__back {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ff6838;
+  text-decoration: none;
+  transition: 0.3s;
+  /* position: absolute;
+  bottom: 50px;
+  left:calc(50%-width); */
+  /* margin:auto; */
+
+}
+
+.notFound__back:hover {
+  opacity: 0.7;
+}

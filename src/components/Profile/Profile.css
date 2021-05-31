@@ -132,3 +132,13 @@
     margin-right: 4%;
   }
 }
+
+.disabled{
+  background-color: gray;
+  cursor: auto;
+}
+
+.form-error{
+  color: #ee3465;
+  font-size: 8px;
+}

@@ -16,12 +16,15 @@ function Main(props) {
 
     return (
         <main>
-            <Header/>
-            <FirstScreen/>
-            <AboutProject/>
-            <Techs/>
-            <AboutMe/>
-            <Footer/>
+            <Header
+                loggedIn={props.loggedIn}
+
+            />
+            <FirstScreen />
+            <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Footer />
         </main>
     );
 }

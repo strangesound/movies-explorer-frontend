@@ -17,7 +17,6 @@ class Api {
       })
   }
 
-
   addNewCard({ name, link }) {
 
     return fetch(`${this._address}/cards`, {

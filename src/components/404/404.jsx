@@ -1,15 +1,15 @@
 import React from 'react';
 // import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+// import Footer from '../Footer/Footer';
+// import Header from '../Header/Header';
 import './404.css'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+    // BrowserRouter as Router,
+    // Switch,
+    // Route,
     Link,
-    Redirect,
-    useHistory
+    // Redirect,
+    // useHistory
 } from "react-router-dom";
 
 function NotFound(props) {

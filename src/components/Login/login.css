@@ -53,6 +53,7 @@
   border: none;
   color: white;
   margin-top: 150px;
+  cursor: pointer;
 }
 
 .form-registration__bottom-text {

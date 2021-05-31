@@ -4,12 +4,12 @@ import closeBurger from '../../images/burger-menu-close.svg';
 import './BurgerMenu.css'
 import React from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+    // BrowserRouter as Router,
+    // Switch,
+    // Route,
     NavLink,
-    Redirect,
-    useHistory
+    // Redirect,
+    // useHistory
 } from "react-router-dom";
 
 
@@ -25,7 +25,7 @@ function BurgerMenu(props) {
 
 
     return (
-        <burgerMenu className={burger ? "burgerMenu" : "burgerMenu-background" }>
+        <section className={burger ? "burgerMenu" : "burgerMenu-background" }>
             <NavLink to="/">
                 <img src={logo} alt="Логотип С" className="burgerMenu__logo" />
             </NavLink>
@@ -55,7 +55,7 @@ function BurgerMenu(props) {
                 </NavLink>
             </div>
 
-        </burgerMenu>
+        </section>
     );
 }
 

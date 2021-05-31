@@ -12,14 +12,33 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 function Main(props) {
 
     // const currentUser = React.useContext(CurrentUserContext);
-
+    // console.log('movies jsx', props)
     return (
         <main>
-            <BurgerMenu/>
-            <HeaderAuth/>
-            <SearchForm/>
-            <MoviesCardList/>
-            <Footer/>
+            <BurgerMenu />
+            <HeaderAuth />
+            <SearchForm
+                searchValue={props.searchValue}
+                setSearchValue={props.setSearchValue}
+                korotkometr={props.korotkometr}
+                setKorotkometr={props.setKorotkometr}
+
+            />
+            <MoviesCardList
+                movies={props.movies}
+                searchValue={props.searchValue}
+                korotkometr={props.korotkometr}
+                onLike = {props.onLike}
+                onDisLike={props.onDisLike}
+                userMovies = {props.userMovies}
+                searchFormValue={props.searchValue}
+                // setSearchValue={props.setSearchValue}
+
+
+
+
+            />
+            <Footer />
         </main>
     );
 }

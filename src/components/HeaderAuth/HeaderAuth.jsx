@@ -1,18 +1,18 @@
 import logo from '../../images/logo.svg';
 import React from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+    // BrowserRouter as Router,
+    // Switch,
+    // Route,
     NavLink,
-    Redirect,
-    useHistory
+    // Redirect,
+    // useHistory
 } from "react-router-dom";
 
 
-function headerAuth(props) {
+function HeaderAuth(props) {
     return (
-        <headerAuth className="headerAuth">
+        <header className="headerAuth">
             <NavLink to="/">
                 <img src={logo} alt="Логотип С" className="headerAuth__logo" />
             </NavLink>
@@ -35,8 +35,8 @@ function headerAuth(props) {
                 </NavLink>
             </div>
 
-        </headerAuth>
+        </header>
     );
 }
 
-export default headerAuth
+export default HeaderAuth

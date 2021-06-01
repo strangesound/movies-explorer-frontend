@@ -10,7 +10,9 @@
   grid-gap: 20px;
   grid-auto-flow: row;
 }
-
+.displayNone{
+  display: none;
+}
 .MoviesCardList__btn-more {
   display: block;
   font-family: Inter;

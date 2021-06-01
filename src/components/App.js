@@ -56,6 +56,7 @@ function App() {
 
   }, [loggedIn])
 
+  //Получение сохраненных фильмов
   useEffect(() => {
     if (loggedIn) {
       (mainApi.getUserMovies()
@@ -71,10 +72,6 @@ function App() {
   }, [loggedIn])
 
   function handleLogin(password, email) {
-    //  - передается в <Login />, 
-    // при вызове отправляет запрос авторизации, 
-    // в случае успеха сохраняет email в стейте главного компонента, 
-    // затем устанавливает в стейте флажок который говорит о том что пользователь залогинился, сохраняет в localStorage jwt токен который прилетает с сервера и отправляет пользователя на корневую страницу сайта (раз он залогинился, может спокойно путешествовать по самому сервису). Выполняется это с помощью history.push
     setShowPreloader(true);
     return login(password, email)
       .then((response) => {
@@ -83,17 +80,19 @@ function App() {
           setLoggedIn(true);
           setCurrentUser(response.name, response.email);
           setTooltipStatus({
-            text: 'Вы успешно зарегистрировались',
+            text: 'Вы успешно вошли',
             iconType: 'success'
           });
-          setTimeout(() => history.push('/movies'), 1000);
+          setTimeout(() => {
+            closeAllPopups();
+            history.push('/movies')
+          }, 1000);
         }
         else {
           setTooltipStatus({
             text: response.message,
             iconType: 'error'
           });
-
         }
       })
       .catch((err) => {
@@ -106,20 +105,15 @@ function App() {
       })
       .finally(() => setShowPreloader(false)
       )
-
   }
-  function handleChangeUserValues(name, email) {
-    //  - передается в <Login />, 
-    // при вызове отправляет запрос авторизации, 
-    // в случае успеха сохраняет email в стейте главного компонента, 
-    // затем устанавливает в стейте флажок который говорит о том что пользователь залогинился, сохраняет в localStorage jwt токен который прилетает с сервера и отправляет пользователя на корневую страницу сайта (раз он залогинился, может спокойно путешествовать по самому сервису). Выполняется это с помощью history.push
-    setShowPreloader(true);
 
+
+  function handleChangeUserValues(name, email) {
+    setShowPreloader(true);
     return mainApi.patchUserInfo(name, email)
       .then((response) => {
         if (response.token) {
           setCurrentUser(response);
-
         }
       })
       .catch((err) => {
@@ -127,18 +121,9 @@ function App() {
       })
       .finally(() => setShowPreloader(false)
       )
-
   }
 
-
-
-
-
   function handleAddMovieToLiked(movieId) {
-    //  - передается в <Login />, 
-    // при вызове отправляет запрос авторизации, 
-    // в случае успеха сохраняет email в стейте главного компонента, 
-    // затем устанавливает в стейте флажок который говорит о том что пользователь залогинился, сохраняет в localStorage jwt токен который прилетает с сервера и отправляет пользователя на корневую страницу сайта (раз он залогинился, может спокойно путешествовать по самому сервису). Выполняется это с помощью history.push
     setShowPreloader(true);
     // console.log('handleAddMovieToLiked', movieId, movies[movieId - 1].nameRU, movies[movieId - 1].id)
     return mainApi.addMovieToLiked(movies[movieId - 1])
@@ -188,10 +173,9 @@ function App() {
     return mainApi.deleteMovie(_id)
       .then((response) => {
         if (response) {
-          console.log('delete movie', response)          
+          console.log('delete movie', response)
           const newList = userMovies.filter((item) => item._id !== _id);
           setUserMovies(newList);
-
         }
       })
       .catch((err) => {
@@ -200,7 +184,6 @@ function App() {
           text: err,
           iconType: 'error'
         });
-
       })
       .finally(() => setShowPreloader(false)
       )
@@ -226,7 +209,6 @@ function App() {
             text: response.message,
             iconType: 'error'
           });
-
           console.log('register error', response.error)// setIsInfoTooltipOpen({ isOpen: true, status: 'deny' })
         }
         else {
@@ -237,17 +219,17 @@ function App() {
               text: 'Вы успешно зарегистрировались',
               iconType: 'success'
             });
-            setTimeout(() => history.push('/signin'), 1000);
-
+            setTimeout(() => {
+              closeAllPopups();
+              history.push('/signin')
+            }, 1000);
           }
           catch {
             setTooltipStatus({
               text: 'Что-то пошло не так',
               iconType: 'error'
             });
-
           }
-
         }
       })
       .catch((err) => {
@@ -256,14 +238,13 @@ function App() {
           text: err,
           iconType: 'error'
         });
-
       })
       .finally(() => setShowPreloader(false)
       )
   }
 
+  //   checkToken - вызывается при монтировании App, и отправляет запрос checkToken если jwt есть в хранилище
   const tokenCheck = React.useCallback(() => {
-    //   checkToken - вызывается при монтировании App, и отправляет запрос checkToken если jwt есть в хранилище
     const token = localStorage.getItem('token');
     if (token) {
       checkToken(token)
@@ -282,10 +263,10 @@ function App() {
   }, [tokenCheck])
 
 
-  function pushToLogin() {
-    history.push('/signin')
+  // function pushToLogin() {
+  //   history.push('/signin')
 
-  }
+  // }
 
   useEffect(() => {
     if (loggedIn && movies.length < 1) {
@@ -293,6 +274,8 @@ function App() {
         .then((response) => {
           // console.log(response)
           setMovies(response);
+          localStorage.setItem('lsMovies', JSON.stringify(response))
+
         })
         .catch((err) => {
           console.log('getInitialMovies', err)
@@ -351,14 +334,14 @@ function App() {
         <Route path="/signin">
           <Login
             onSubmit={handleLogin}
-            signInPush={pushToLogin}
+            // signInPush={pushToLogin}
           />
         </Route>
 
         <Route path="/signup">
           <Register
             onSubmit={handleRegister}
-            signInPush={pushToLogin}
+            // signInPush={pushToLogin}
           />
         </Route>
 

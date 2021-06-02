@@ -1,26 +1,23 @@
-function register(password, email) {
+async function register(name, password, email) {
     //функция register - принимает почту и пароль, отправляет запрос регистрации на /signup
 
-    return fetch('https://auth.nomoreparties.co/signup', {
+    const res = await fetch('https://api.arseny-movies.nomoredomains.club/signup', {
         method: 'Post',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            name: name,
             password: password,
             email: email
         })
-
-    })
-        .then((res) => {
-            // console.log('register', res)
-            return res.json();
-        })
+    });
+    return await res.json();
 }
 
-function login(password, email) {
+async function login(password, email) {
     // функция login - принимает почту и пароль, отправляет запрос авторизации на /signin . В ответ сервер вернет jwt, который нужно сохранить в localStorage
-    return fetch('https://auth.nomoreparties.co/signin', {
+    const res = await fetch('https://api.arseny-movies.nomoredomains.club/signin', {
         method: 'Post',
         headers: {
             'Content-Type': 'application/json'
@@ -29,26 +26,21 @@ function login(password, email) {
             password: password,
             email: email
         })
-    })
-        .then((res) => {
-            return res.json();
-        })
+    });
+    return await res.json();
 }
 
-function checkToken(jwt) {
+async function checkToken(jwt) {
     // функция checkToken - принимает jwt, отправляет запрос на /users/me и возвращает данные пользователя
-    return fetch('https://auth.nomoreparties.co/users/me', {
+    const res = await fetch('https://api.arseny-movies.nomoredomains.club/users/me', {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${jwt}`
         }
-
-    })
-        .then((res) => {
-            console.log('checkToken auth', res)
-            return _returnResInJSON(res);
-        })
+    });
+    // console.log('checkToken auth', res);
+    return _returnResInJSON(res);
 
 }
 

@@ -1,55 +1,71 @@
-import React from 'react';
-import filmPict from '../../images/film_pict.jpg';
+import React, { useEffect } from 'react';
+// import filmPict from '../../images/film_pict.jpg';
 import './MoviesCard.css';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
 function MovieCard(props) {
+    // const currentUser = React.useContext(CurrentUserContext);
 
     const [like, setLike] = React.useState(false);
 
     function handleLike(e) {
-        setLike(!like);
-        // console.log(burger)
-
+        if (like) {
+            // setLike(false);
+            isLiked = false
+            setLike(false)
+            props.onDisLike(props.nameEN);
+        }
+        else {
+            // setLike(true);
+            isLiked = true
+            setLike(true)
+            props.onLike(props.id);
+        }
     }
 
-    // function handleLikeClick() {
-    //     props.onCardClick(true, props.link, props.name)
-    // }
-    // // console.log(props)
-    // function handleTrashBtnClick() {
-    //     props.onCardDelete(props)
-    // }
-    // function handleLikeClick() {
-    //     props.onCardLike(props)
-    // }
-    // const currentUser = React.useContext(CurrentUserContext);
-    // // console.log(props)
-    // // Определяем, являемся ли мы владельцем текущей карточки
-    // const isOwn = props.owner._id === currentUser._id;
 
-    // // Создаём переменную, которую после зададим в `className` для кнопки удаления
-    // const cardDeleteButtonClassName = (
-    //     `movieCard__delete-btn ${isOwn ? '' : 'display'}`
-    // );
+    function timeConvert(n) {
+        var num = n;
+        var hours = (num / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        return rhours + " ч " + rminutes + " мин";
+    }
 
-    // // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
-    // const isLiked = props.likes.some(i => i._id === currentUser._id);
+    // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
+    let isLiked = props.userMovies.some(i => i.nameEN === props.nameEN)
 
-    // // Создаём переменную, которую после зададим в `className` для кнопки лайка
-    // const cardLikeButtonClassName = `movieCard__like ${isLiked ? 'movieCard__like_active' : ''}`;
+
+    const testLike = React.useCallback(() => {
+        if (isLiked) {
+            setLike(isLiked)
+        }
+    }, [isLiked])
+
+    useEffect(() => {
+        testLike();
+    }, [testLike])
+
 
     return (
         <article className="movieCard">
-            <img src={filmPict} alt="Картинка фильма" className="movieCard__image" />
+            <a target="_blank"
+                rel="noopener noreferrer"
+                href={props.trailerLink}>
+                <img
+                    src={props.image ? 'https://api.nomoreparties.co' + props.image.url : ""}
+                    alt={props.image ? props.image.name : ""}
+                    className="movieCard__image" />
+            </a>
             <div className="movieCard__title">
                 <div className="movieCard__like-wrapper">
-                    <h2 className="movieCard__name">33 слова о дизайне</h2>
-                    <button type="button" className={like ? "MovieDislLikeButton" : "MovieLikeButtonClassName" } onClick={handleLike} />
-                    <button type="button" className="MovieLikeButtonGray" />
+                    <h2 className="movieCard__name">{props.nameRU}</h2>
+                    <button type="button" className={like ? "MovieLikeButtonClassName" : "MovieLikeButtonGray"} onClick={handleLike} />
+                    {/* <button type="button" className="MovieLikeButtonGray" /> */}
                 </div>
-                <p className="movieCard__length">1ч42м</p>
+                <p className="movieCard__length">{timeConvert(props.duration)}</p>
             </div>
         </article>
     );
